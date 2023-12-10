@@ -1,0 +1,1 @@
+{"execution":[{"ramp-up":"1s","hold-for":"5s","scenario":"Prueba 2","taskCount":1,"concurrency":1}],"scenarios":{"Prueba 2":{"requests":[{"url":"https://www.google.com","method":"GET","body":{},"headers":{}}]}},"reporting":[{"module":"final-stats","summary":true,"percentiles":true,"summary-labels":true,"test-duration":true,"dump-xml":"/tmp/artifacts/results.xml"}]}
