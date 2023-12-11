@@ -48,3 +48,35 @@ La arquitectura implementa los siguientes recursos:
 
 * [Creación Prueba​](/img/DemoCreación.mp4 "Creación Prueba​")
 * [Ejecución Prueba​​](/img/DemoEjecución.mp4 "Ejecución Prueba​")
+
+* ##Costos
+* El costo total para ejecutar esta solución depende del número de pruebas de carga realizadas, la duración de esas pruebas de carga y la cantidad de datos utilizados como parte de las pruebas. Según esta revisión, el costo de ejecutar esta solución con la configuración predeterminada en la región Este de EE. UU. (N. Virginia) es de aproximadamente $30.90 por mes. La estimación de costos asume los siguientes factores:
+
+* ![image](https://github.com/DaniV93/AYGO_AutomatedLoadTest_Project/assets/124316934/7543ecea-cafd-4ce0-8f94-c1ba904d8ef3)
+
+* Es importante tener en cuenta que a partir de la versión 1.3.0, la CPU se incrementa a 2 vCPU y la memoria se incrementa a 4 GB. Estos cambios aumentan el costo estimado en comparación con las versiones anteriores de esta solución. Si tus pruebas de carga no requieren estos incrementos en tus recursos de AWS, puedes reducirlos.
+
+# Seguridad
+
+Este modelo compartido puede reducir tu carga operativa ya que AWS opera, gestiona y controla los componentes desde el sistema operativo del host y la capa de virtualización hasta la seguridad física de las instalaciones en las que operan los servicios. Para obtener más información sobre la seguridad en AWS, visita AWS Cloud Security.
+
+## Roles de IAM
+
+Los roles de AWS Identity and Access Management (IAM) permiten a los clientes asignar políticas de acceso granulares y permisos a servicios y usuarios en AWS. Esta solución crea varios roles de IAM, incluyendo roles que otorgan a la función AWS Lambda de la solución acceso a los otros servicios de AWS utilizados en esta solución.
+
+## Amazon CloudFront
+
+Esta solución despliega un sitio web estático alojado en un bucket de Amazon Simple Storage Service (Amazon S3). Para ayudar a reducir la latencia y mejorar la seguridad, esta solución incluye una distribución de Amazon CloudFront con una identidad de origen, que es un usuario especial de CloudFront que ayuda a proporcionar acceso seguro y público al contenido del bucket del sitio web de la solución. Para obtener más información, consulta Restringiendo el Acceso al Contenido de Amazon S3 Utilizando una Identidad de Origen.
+
+## Grupo de seguridad de AWS Fargate
+
+Por defecto, esta solución abre la regla de salida del grupo de seguridad de AWS Fargate al público. Si quieres bloquear a AWS Fargate para que no envíe tráfico a todas partes, entonces cambia la regla de salida a una Ruta de Inter-Dominio sin Clase (CIDR) específica. Este grupo de seguridad también incluye una regla de entrada que permite el tráfico local en el puerto 50,000 a cualquier fuente que pertenezca al mismo grupo de seguridad. Esto se utiliza para permitir que los contenedores se comuniquen entre sí.
+
+## Prueba de estrés de red
+
+Esta política cubre situaciones como si estás planeando ejecutar pruebas de red de alto volumen directamente desde tus instancias de Amazon EC2 a otros lugares como otras instancias de Amazon EC2, propiedades/servicios de AWS, o puntos finales externos. Estas pruebas a veces se llaman pruebas de estrés, pruebas de carga, o pruebas de día de juego. La mayoría de las pruebas de los clientes no caerán bajo esta política, sin embargo, consulta esta política si crees que estarás generando tráfico que se sostenga, en agregado, durante más de 1 minuto, sobre 1 Gbps (1 billón de bits por segundo) o sobre 1 Gpps (1 billón de paquetes por segundo).
+
+## Restringiendo el acceso a la interfaz de usuario pública
+
+Para restringir el acceso a la interfaz de usuario pública más allá de los mecanismos de autenticación y autorización proporcionados por IAM y Amazon Cognito, utiliza la solución de Automatizaciones de Seguridad de AWS WAF (firewall de aplicaciones web).
+
