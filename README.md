@@ -1,4 +1,6 @@
-# AYGO_AutomatedLoadTest_Project
+ # AYGO Pruebas de carga distribuida en AWS​
+ ## Integrantes
+ * 
 
 ## Problemática
 
@@ -44,15 +46,10 @@ La arquitectura implementa los siguientes recursos:
 13. Si selecciona la opción de datos en vivo, la solución envía los registros de Amazon CloudWatch para las tareas de AWS Fargate a una función Lambda durante la prueba, para cada región en la que se ejecutó la prueba.
 14. Luego, la función Lambda publica los datos en el tema correspondiente en **AWS IoT Core** en la región donde se implementó la pila principal. La consola web se suscribe al tema y podrá ver los datos mientras se ejecuta la prueba en la consola web.
 
-## Demo
-
-* [Creación Prueba​](/img/DemoCreación.mp4 "Creación Prueba​")
-* [Ejecución Prueba​​](/img/DemoEjecución.mp4 "Ejecución Prueba​")
-
-* ##Costos
+## Costos
 * El costo total para ejecutar esta solución depende del número de pruebas de carga realizadas, la duración de esas pruebas de carga y la cantidad de datos utilizados como parte de las pruebas. Según esta revisión, el costo de ejecutar esta solución con la configuración predeterminada en la región Este de EE. UU. (N. Virginia) es de aproximadamente $30.90 por mes. La estimación de costos asume los siguientes factores:
 
-* ![image](https://github.com/DaniV93/AYGO_AutomatedLoadTest_Project/assets/124316934/7543ecea-cafd-4ce0-8f94-c1ba904d8ef3)
+    ![image](https://github.com/DaniV93/AYGO_AutomatedLoadTest_Project/assets/124316934/7543ecea-cafd-4ce0-8f94-c1ba904d8ef3)
 
 * Es importante tener en cuenta que a partir de la versión 1.3.0, la CPU se incrementa a 2 vCPU y la memoria se incrementa a 4 GB. Estos cambios aumentan el costo estimado en comparación con las versiones anteriores de esta solución. Si tus pruebas de carga no requieren estos incrementos en tus recursos de AWS, puedes reducirlos.
 
@@ -80,3 +77,7 @@ Esta política cubre situaciones como si estás planeando ejecutar pruebas de re
 
 Para restringir el acceso a la interfaz de usuario pública más allá de los mecanismos de autenticación y autorización proporcionados por IAM y Amazon Cognito, utiliza la solución de Automatizaciones de Seguridad de AWS WAF (firewall de aplicaciones web).
 
+## Demo
+
+* [Creación Prueba​](/img/DemoCreación.mp4 "Creación Prueba​")
+* [Ejecución Prueba​​](/img/DemoEjecución.mp4 "Ejecución Prueba​")

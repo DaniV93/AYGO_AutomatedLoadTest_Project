@@ -47,8 +47,11 @@
         "escalabilidad",
         "Escalabilidad",
         "Fargate",
+        "Gbps",
+        "Gpps",
         "microservicios",
         "Monitoreo",
-        "proactivamente"
+        "proactivamente",
+        "virtualización"
     ]
 }
