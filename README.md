@@ -1,6 +1,9 @@
  # AYGO Pruebas de carga distribuida en AWS​
  ## Integrantes
- * 
+ * Daniel Ricardo Vergara Fonseca
+ * Juan Felipe Santos Carvajal
+ * María José Torres Nieves
+
 
 ## Problemática
 
